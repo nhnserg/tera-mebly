@@ -16,9 +16,9 @@ const NavBar = () => {
         <div className="flex items-center">
           <Link href="/" className="">
             <Image
-              src="/assets/images/tera-mebly.png"
-              width={50}
-              height={197}
+              src="/assets/images/logo.webp"
+              width={196}
+              height={50}
               alt="logo"
             />
           </Link>
