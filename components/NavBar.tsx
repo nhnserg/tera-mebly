@@ -27,13 +27,8 @@ const NavBar = () => {
           </div>
         </div>
         <nav className="flex space-x-4">
-          <div>
-            <Link
-              href="/catolog"
-              className="flex flex-col items-center text-center"
-            >
-              <BsLayoutWtf className="w-5 h-5 mb-1" />
-            </Link>
+          <div className="flex flex-col items-center text-center">
+            <BsLayoutWtf className="w-5 h-5 mb-1" />
             Каталог
           </div>
           <div>
