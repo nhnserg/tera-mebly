@@ -1,9 +1,9 @@
 // components/Icon.tsx
 import React from "react";
-import { IconTypes } from "lucide-react";
+import IconTypes from "lucide-react";
 
 interface IconProps {
-  icon: IconTypes;
+  icon: React.ComponentType<any>;
   size?: number;
   color?: string;
   className?: any;

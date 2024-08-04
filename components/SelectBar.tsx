@@ -27,7 +27,7 @@ export function SelectBar() {
       </SelectTrigger>
       <SelectContent className="rounded-none">
         <SelectGroup>
-          <SelectItem value="RUS">RU</SelectItem>
+          <SelectItem value="RU">RU</SelectItem>
           <SelectItem value="UA">UA</SelectItem>
         </SelectGroup>
       </SelectContent>

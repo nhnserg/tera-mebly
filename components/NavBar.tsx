@@ -16,8 +16,8 @@ import Icon from "./Icon";
 const NavBar = () => {
   return (
     <header className="bg-red-500 p-4 text-white">
-      <div className="container mx-auto flex justify-evenly items-center">
-        <div className="flex items-center">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div className="flex items-center justify-between w-full md:w-auto">
           <Link href="/" className="pr-6">
             <Image
               src="/assets/images/logo.webp"
@@ -26,11 +26,14 @@ const NavBar = () => {
               alt="logo"
             />
           </Link>
-          <div className="ml-4 text-xs text-black p-1">
-            <SelectBar />
+          <div className="block md:hidden">
+            <Icon icon={LayoutDashboard} size={24} color="white" />
           </div>
         </div>
-        <nav className="flex space-x-4">
+        <div className="hidden md:flex items-center ml-4 text-xs text-black p-1">
+          <SelectBar />
+        </div>
+        <nav className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-4 md:mt-0">
           <div className="flex flex-col items-center text-center pr-5 group">
             <Icon icon={LayoutDashboard} size={24} color="white" />
             Каталог
@@ -44,14 +47,16 @@ const NavBar = () => {
             </Link>
             Контакти
           </div>
-          <SearchBar />
+          <div className="w-full md:w-auto">
+            <SearchBar />
+          </div>
         </nav>
-        <div className="flex space-x-10">
+        <div className="flex space-x-4 md:space-x-10 mt-4 md:mt-0">
           <Link
             href="/"
             className="flex flex-col items-center text-center group"
           >
-            <Icon icon={User} size={24} className=" mb-1" />
+            <Icon icon={User} size={24} className="mb-1" />
             Кабінет
           </Link>
           <Link
