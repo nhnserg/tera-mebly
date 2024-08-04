@@ -1,7 +1,8 @@
 {
-  "name": "tera-mebly",
+  "name": "nhnserg.github.io",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://nhnserg.github.io/tera-mebly/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
