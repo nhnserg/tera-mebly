@@ -3,12 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import SearchBar from "./SearchBar";
-import { FaRegUser } from "react-icons/fa";
-import { CiHeart } from "react-icons/ci";
-import { SlBasket } from "react-icons/sl";
-import { FiPhone } from "react-icons/fi";
-import { BsLayoutWtf } from "react-icons/bs";
+import {
+  Phone,
+  User,
+  Heart,
+  ShoppingCart,
+  LayoutDashboard,
+} from "lucide-react";
 import { SelectBar } from "./SelectBar";
+import Icon from "./Icon";
 
 const NavBar = () => {
   return (
@@ -29,28 +32,40 @@ const NavBar = () => {
         </div>
         <nav className="flex space-x-4">
           <div className="flex flex-col items-center text-center pr-5 group">
-            <BsLayoutWtf className="w-5 h-5 mb-1 group-hover:text-white group-focus:text-white" />
+            <Icon icon={LayoutDashboard} size={24} color="white" />
             Каталог
           </div>
           <div className="pr-10 group">
-            <Link href="/contacts" className="flex flex-col items-center text-center">
-              <FiPhone className="w-5 h-5 mb-1 group-hover:text-white group-focus:text-white" />
+            <Link
+              href="/contacts"
+              className="flex flex-col items-center text-center"
+            >
+              <Icon icon={Phone} size={24} color="white" className="mb-1" />
             </Link>
             Контакти
           </div>
           <SearchBar />
         </nav>
         <div className="flex space-x-10">
-          <Link href="/" className="flex flex-col items-center text-center group">
-            <FaRegUser className="w-5 h-5 mb-1 group-hover:text-white group-focus:text-white" />
+          <Link
+            href="/"
+            className="flex flex-col items-center text-center group"
+          >
+            <Icon icon={User} size={24} className=" mb-1" />
             Кабінет
           </Link>
-          <Link href="/favorites" className="flex flex-col items-center text-center group">
-            <CiHeart className="w-6 h-6 group-hover:text-white group-focus:text-white" />
+          <Link
+            href="/favorites"
+            className="flex flex-col items-center text-center group"
+          >
+            <Icon icon={Heart} size={24} className="" />
             Улюбленне
           </Link>
-          <Link href="/basket" className="flex flex-col items-center text-center group">
-            <SlBasket className="w-5 h-5 mb-1 group-hover:text-white group-focus:text-white" />
+          <Link
+            href="/basket"
+            className="flex flex-col items-center text-center group"
+          >
+            <Icon icon={ShoppingCart} size={24} className="mb-1" />
             Кошик
           </Link>
         </div>
