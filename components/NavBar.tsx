@@ -20,7 +20,7 @@ const NavBar = () => {
         <div className="flex items-center justify-between w-full md:w-auto">
           <Link href="/" className="pr-6">
             <Image
-              src="./public/assets/images/logo.webp"
+              src="assets/images/logo.webp"
               width={196}
               height={50}
               alt="logo"
