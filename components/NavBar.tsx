@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import Icon from "./Icon";
 import MenuModal from "./MenuModal";
+import { SelectBar } from "./SelectBar";
 
 const NavBar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -47,6 +48,7 @@ const NavBar = () => {
           {/* Десктопное меню и поисковая строка */}
           <div className="hidden md:flex flex-grow items-center space-x-6">
             <div className="flex items-center space-x-6">
+              {/* <SelectBar /> */}
               <Link
                 href="/catalog"
                 className="flex flex-col items-center text-center group"

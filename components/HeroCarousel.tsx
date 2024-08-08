@@ -1,12 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const slides = [
   { id: 1, src: "/assets/images/mebel_1.jpg", alt: "Slide 1" },
-  { id: 2, src: "/assets/images/logo.webp", alt: "Slide 2" },
-  { id: 3, src: "/assets/images/ukraine-flag.png", alt: "Slide 3" },
+  { id: 2, src: "/assets/images/mebel2.webp", alt: "Slide 2" },
+  { id: 3, src: "/assets/images/mebel3.webp", alt: "Slide 3" },
+  { id: 4, src: "/assets/images/krovat.jpeg", alt: "Slide 4" },
+  { id: 5, src: "/assets/images/testphoto.webp", alt: "Slide 5" },
 ];
 
 const HeroCarousel = () => {
@@ -20,9 +22,14 @@ const HeroCarousel = () => {
     setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
   };
 
+  useEffect(() => {
+    const intervalId = setInterval(nextSlide, 7000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <div className="relative w-full max-w-4xl mx-auto mt-5">
-      {/* Carousel wrapper */}
       <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
         {slides.map((slide, index) => (
           <div
@@ -37,54 +44,33 @@ const HeroCarousel = () => {
               layout="fill"
               objectFit="cover"
             />
+            {/* Banner */}
+            <div className="absolute bottom-0 left-0 p-4 bg-black bg-opacity-50 text-white text-sm rounded-tr-lg">
+              Купуйте будь-яке крісло або диван і отримайте подушку у подарунок
+            </div>
           </div>
         ))}
       </div>
       {/* Slider controls */}
-      <button
-        type="button"
-        className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        onClick={prevSlide}
-      >
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 focus:ring-4 focus:ring-white focus:outline-none">
-          <svg
-            className="w-6 h-6 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+      <div className="absolute bottom-4 right-4 z-30 flex space-x-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            className={`relative w-4 h-4 rounded-full border-2 transition duration-300 ease-in-out ${
+              index === currentSlide
+                ? "bg-white border-white"
+                : "bg-transparent border-gray-400"
+            }`}
+            onClick={() => setCurrentSlide(index)}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        type="button"
-        className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-        onClick={nextSlide}
-      >
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-white/50 focus:ring-4 focus:ring-white focus:outline-none">
-          <svg
-            className="w-6 h-6 text-white"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </span>
-      </button>
+            {index === currentSlide && (
+              <span className="absolute inset-0 flex items-center justify-center">
+                <span className="w-2.5 h-2.5 bg-white rounded-full"></span>
+              </span>
+            )}
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

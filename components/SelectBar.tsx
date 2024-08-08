@@ -9,20 +9,31 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { useEffect, useState } from "react";
 
 export function SelectBar() {
   const router = useRouter();
   const { i18n } = useTranslation();
-  const { pathname, asPath, query } = router;
+  const [locale, setLocale] = useState<string>(i18n.language);
+
+  useEffect(() => {
+    // Ensure router is mounted before using it
+    setLocale(i18n.language);
+  }, [i18n.language]);
 
   const handleChange = (value: string) => {
-    router.push({ pathname, query }, asPath, { locale: value });
+    router.push(
+      { pathname: router.pathname, query: router.query },
+      router.asPath,
+      { locale: value }
+    );
+    setLocale(value);
   };
 
   return (
-    <Select value={i18n.language} onValueChange={handleChange}>
+    <Select value={locale} onValueChange={handleChange}>
       <SelectTrigger className="bg-transparent text-white">
-        <SelectValue placeholder={i18n.language.toUpperCase()} />
+        <SelectValue placeholder={locale.toUpperCase()} />
       </SelectTrigger>
       <SelectContent className="rounded-none">
         <SelectGroup>
