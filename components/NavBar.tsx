@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import Icon from "./Icon";
 import MenuModal from "./MenuModal";
-import { SelectBar } from "./SelectBar";
+// import { SelectBar } from "./SelectBar";
 
 const NavBar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -32,7 +32,7 @@ const NavBar = () => {
                 src="/assets/images/logo.webp"
                 width={141}
                 height={39}
-                alt="logo"
+                alt="Тера Меблі"
               />
             </Link>
             <div className="flex md:hidden space-x-4">
