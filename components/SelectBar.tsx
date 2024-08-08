@@ -1,6 +1,6 @@
 "use client";
-import * as React from "react";
-import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 import {
   Select,
   SelectContent,
@@ -11,29 +11,23 @@ import {
 } from "@/components/ui/select";
 
 export function SelectBar() {
-  const [selectedValue, setSelectedValue] = useState<string>("UA");
-
-  useEffect(() => {
-    setSelectedValue("UA");
-  }, []);
+  const router = useRouter();
+  const { i18n } = useTranslation();
+  const { pathname, asPath, query } = router;
 
   const handleChange = (value: string) => {
-    setSelectedValue(value);
+    router.push({ pathname, query }, asPath, { locale: value });
   };
 
   return (
-    <Select value={selectedValue} onValueChange={handleChange}>
-      <SelectTrigger className="bg-gray-700 text-white border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
-        <SelectValue placeholder="UA" />
+    <Select value={i18n.language} onValueChange={handleChange}>
+      <SelectTrigger className="bg-transparent text-white">
+        <SelectValue placeholder={i18n.language.toUpperCase()} />
       </SelectTrigger>
-      <SelectContent className="absolute mt-2 w-auto rounded-lg border border-gray-600 bg-white text-black shadow-lg">
+      <SelectContent className="rounded-none">
         <SelectGroup>
-          <SelectItem value="RU" className="p-2 hover:bg-gray-200">
-            RU
-          </SelectItem>
-          <SelectItem value="UA" className="p-2 hover:bg-gray-200">
-            UA
-          </SelectItem>
+          <SelectItem value="ua">UA</SelectItem>
+          <SelectItem value="ru">RU</SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>

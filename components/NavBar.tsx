@@ -11,7 +11,6 @@ import {
   ShoppingCart,
   LayoutDashboard,
 } from "lucide-react";
-import { SelectBar } from "./SelectBar";
 import Icon from "./Icon";
 import MenuModal from "./MenuModal";
 
@@ -47,8 +46,7 @@ const NavBar = () => {
 
           {/* Десктопное меню и поисковая строка */}
           <div className="hidden md:flex flex-grow items-center space-x-6">
-            
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-6">
               <Link
                 href="/catalog"
                 className="flex flex-col items-center text-center group"
@@ -65,11 +63,11 @@ const NavBar = () => {
               </Link>
             </div>
 
-            <div className="flex-grow">
+            <div className="flex-grow max-w-sm">
               <SearchBar />
             </div>
 
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-6">
               <Link
                 href="/"
                 className="flex flex-col items-center text-center group"
