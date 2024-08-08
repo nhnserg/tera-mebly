@@ -2,7 +2,6 @@
 
 const nextConfig = {
   output: "export",
-  assetPrefix: "/tera-mebly",
   images: {
     unoptimized: true,
   },
