@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { SelectBar } from "./SelectBar";
 import Icon from "./Icon";
-import Modal from "./Modal"; 
+import MenuModal from "./MenuModal";
 
 const NavBar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,7 +24,8 @@ const NavBar = () => {
   return (
     <>
       <header className="bg-red-500 p-4 text-white">
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+        <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
+          {/* Логотип и мобильное меню */}
           <div className="flex items-center justify-between w-full md:w-auto">
             <Link href="/" className="pr-6">
               <Image
@@ -43,58 +44,58 @@ const NavBar = () => {
               </button>
             </div>
           </div>
-          <div className="hidden md:flex items-center ml-4 text-xs text-black p-1">
-            <SelectBar />
-          </div>
-          <nav className="hidden md:flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-4 md:mt-0">
-            <div className="flex flex-col items-center text-center pr-5 group">
-              <Icon icon={LayoutDashboard} size={24} color="white" />
-              Каталог
-            </div>
-            <div className="pr-10 group">
+
+          {/* Десктопное меню и поисковая строка */}
+          <div className="hidden md:flex flex-grow items-center space-x-6">
+            
+            <div className="flex items-center space-x-4">
+              <Link
+                href="/catalog"
+                className="flex flex-col items-center text-center group"
+              >
+                <Icon icon={LayoutDashboard} size={24} color="white" />
+                <span>Каталог</span>
+              </Link>
               <Link
                 href="/contacts"
-                className="flex flex-col items-center text-center"
+                className="flex flex-col items-center text-center group"
               >
-                <Icon icon={Phone} size={24} color="white" className="mb-1" />
+                <Icon icon={Phone} size={24} color="white" />
+                <span>Контакти</span>
               </Link>
-              Контакти
             </div>
-            <div className="w-full md:w-auto">
+
+            <div className="flex-grow">
               <SearchBar />
             </div>
-          </nav>
-          <div className="hidden md:flex space-x-4 md:space-x-10 mt-4 md:mt-0">
-            <Link
-              href="/"
-              className="flex flex-col items-center text-center group"
-            >
-              <Icon icon={User} size={24} className="mb-1" />
-              Кабінет
-            </Link>
-            <Link
-              href="/favorites"
-              className="flex flex-col items-center text-center group"
-            >
-              <Icon icon={Heart} size={24} className="" />
-              Улюбленне
-            </Link>
-            <Link
-              href="/basket"
-              className="flex flex-col items-center text-center group"
-            >
-              <Icon icon={ShoppingCart} size={24} className="mb-1" />
-              Кошик
-            </Link>
+
+            <div className="flex items-center space-x-4">
+              <Link
+                href="/"
+                className="flex flex-col items-center text-center group"
+              >
+                <Icon icon={User} size={24} className="mb-1" />
+                <span>Кабінет</span>
+              </Link>
+              <Link
+                href="/favorites"
+                className="flex flex-col items-center text-center group"
+              >
+                <Icon icon={Heart} size={24} />
+                <span>Улюбленне</span>
+              </Link>
+              <Link
+                href="/basket"
+                className="flex flex-col items-center text-center group"
+              >
+                <Icon icon={ShoppingCart} size={24} className="mb-1" />
+                <span>Кошик</span>
+              </Link>
+            </div>
           </div>
         </div>
       </header>
-      <Modal show={isModalOpen} onClose={closeModal}>
-        <div>
-          <h2 className="text-xl font-semibold">Меню</h2>
-          <p>Содержимое вашего меню здесь...</p>
-        </div>
-      </Modal>
+      <MenuModal show={isModalOpen} onClose={closeModal} />
     </>
   );
 };
