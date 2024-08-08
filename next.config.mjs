@@ -2,9 +2,10 @@
 
 const nextConfig = {
   output: "export",
+  basePath: "/tera-mebly",
   assetPrefix: "/tera-mebly",
   images: {
-    unoptimized: false,
+    unoptimized: true,
   },
   transpilePackages: ["lucide-react"],
 };

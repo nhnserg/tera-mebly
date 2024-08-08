@@ -29,7 +29,7 @@ const NavBar = () => {
           <div className="flex items-center justify-between w-full md:w-auto">
             <Link href="/" className="pr-6">
               <Image
-                src="/assets/images/logo.webp"
+                src="/tera-mebly/logo.webp"
                 width={141}
                 height={39}
                 alt="Тера Меблі"

@@ -5,7 +5,9 @@ export default function Home() {
   return (
     <main>
       <HeroCarousel />
-      <Footer />
+      <div className="mt-14">
+        <Footer />
+      </div>
     </main>
   );
 }
