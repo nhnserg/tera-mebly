@@ -42,7 +42,6 @@ export default function Modal({ show, children, onClose }: ModalProps) {
           leaveTo="opacity-0 scale-95"
         >
           <Dialog.Panel className="relative bg-white rounded-lg shadow-xl transform transition-all p-7 mx-auto sm:my-10 sm:w-full sm:max-w-2xl">
-            {/* Кнопка закрытия */}
             <button
               className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 focus:outline-none"
               onClick={onClose}
