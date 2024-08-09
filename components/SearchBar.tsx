@@ -3,11 +3,9 @@ import { Search } from "lucide-react";
 import Icon from "./Icon";
 import { Input } from "./ui/input";
 
-
 const SearchBar = () => {
   const [query, setQuery] = useState("");
 
- 
   const handleSearch = () => {
     if (query.trim()) {
       // логика поиска
@@ -29,7 +27,7 @@ const SearchBar = () => {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyDown}
-        className="pl-2 pr-12 py-2 border-r-4 text-black border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="pl-2 py-2 border-gray-300 rounded w-full focus:outline-none focus:ring-2 focus:ring-blue-500  text-black"
         placeholder="Search..."
       />
       <div

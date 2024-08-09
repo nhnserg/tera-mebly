@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Banner from "@/components/Banner";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 const SpaceGrotesk = Space_Grotesk({
@@ -28,6 +29,7 @@ export default function RootLayout({
           <NavBar />
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );
